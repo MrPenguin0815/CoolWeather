@@ -1,15 +1,17 @@
 package com.example.coolweather.db;
 
-public class Province {
+import org.litepal.crud.LitePalSupport;
+
+public class Province extends LitePalSupport {
+    /**
+     * 记录省的代号
+     */
     private int id;
     /**
      * 记录省的名字
      */
     private String provinceName;
-    /**
-     * 记录省的代号
-     */
-    private int ProvinceCode;
+
 
     public int getId() {
         return id;
@@ -27,11 +29,4 @@ public class Province {
         this.provinceName = provinceName;
     }
 
-    public int getProvinceCode() {
-        return ProvinceCode;
-    }
-
-    public void setProvinceCode(int provinceCode) {
-        ProvinceCode = provinceCode;
-    }
 }
