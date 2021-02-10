@@ -6,6 +6,8 @@ import android.util.Log;
 import com.example.coolweather.db.City;
 import com.example.coolweather.db.County;
 import com.example.coolweather.db.Province;
+import com.example.coolweather.gson.Weather;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,8 +52,8 @@ public class Utility {
                     City city = new City();
                     city.setCityName(CityObject.getString("name"));
                     city.setCityCode(CityObject.getInt("id"));
-                    Log.e("XXX","从数据库中获取到的cityId:" + city.getId());
-                    Log.e("XXX","从数据库中获取到的cityCode:" + city.getCityCode());
+//                    Log.e("XXX","从数据库中获取到的cityId:" + city.getId());
+//                    Log.e("XXX","从数据库中获取到的cityCode:" + city.getCityCode());
                     city.setProvinceId(provinceId);
                     city.save();
                 }
@@ -86,6 +88,26 @@ public class Utility {
         }
         return false;
     }
+
+
+    /**
+     * @return 解析成功时返回每个县对应的唯一的天气对象
+     */
+   public static Weather handleWeatherResponse(String response){
+       try {
+           JSONObject jsonObject = new JSONObject(response);
+           JSONArray jsonArray = jsonObject.getJSONArray("HeWeather");
+           String weatherContent = jsonArray.getJSONObject(0).toString();
+           return new Gson().fromJson(weatherContent,Weather.class);
+       } catch (JSONException e) {
+           e.printStackTrace();
+       }
+       return null;
+   }
+
+
+
+
 }
 
 

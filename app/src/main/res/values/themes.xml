@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.CoolWeather" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#8090D9DF</item>
-        <item name="colorPrimaryVariant">#A8EDED</item>
+        <item name="colorPrimary">#C3C3C3</item>
+        <item name="colorPrimaryVariant">#9A9A9A</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
